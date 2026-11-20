@@ -87,7 +87,7 @@ public class CatTntItemEvents {
         Coroutine.delay(5f, () -> {
             if (!cat.isRemoved()) {
                 ServerLevel level = (ServerLevel) cat.level();
-                level.explode(null, cat.getX(), cat.getY(), cat.getZ(), power, Level.ExplosionInteraction.TNT);
+                level.explode(cat, cat.getX(), cat.getY(), cat.getZ(), power, Level.ExplosionInteraction.TNT);
                 cat.getPersistentData().remove(NbtConstants.CAT_TNT_COUNT_TAG);
                 cat.getPersistentData().remove(NbtConstants.CAT_LIT_TAG);
                 MainClass.CHANNEL.send(PacketDistributor.ALL.noArg(), new TntNetworkPack(cat.getUUID(), 0, false));
